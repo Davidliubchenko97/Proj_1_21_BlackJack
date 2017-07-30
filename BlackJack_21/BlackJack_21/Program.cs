@@ -31,7 +31,7 @@ namespace BlackJack_21
             dillerhand.HandPoint = 0;
             tasyem.Tas1(Card);
             int GameCash = 0;
-            for (int ii = 0; ii < 333; ii++)
+            while (true)
             {
                 Console.WriteLine($"На вашем счету {yourhand.Cash}$. Сколько вы поставите? Введите сумму:");
                 GameCash = int.Parse(Console.ReadLine());
