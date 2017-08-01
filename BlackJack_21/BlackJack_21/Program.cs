@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace BlackJack_21
 {
+
     struct hand
     {
         public int Cash;
@@ -19,6 +20,7 @@ namespace BlackJack_21
     }
     class StartGame
     {
+
         public void Start(Cards[] Card)
         {
             Tass tasyem = new Tass();
@@ -55,6 +57,27 @@ namespace BlackJack_21
                 Console.WriteLine($"У вас { yourhand.HandPoint} очков");
                 i++;
             }
+            if(Card[i-2].Suit==Card[i-1].Suit)
+            {
+                Console.WriteLine("Сплитуете?(Y/N)");
+                char areuwontsplit = char.Parse(Console.ReadLine());
+                if (areuwontsplit == 'Y')
+                {
+                    yourhand.HandPoint = Card[i - 2].Point;
+                    hand yourhand2 = new hand();
+                    yourhand2.HandPoint = Card[i - 1].Point;
+                    Console.WriteLine($"Ваша карта: { Card[i].Suit} { Card[i].Rank}");
+                    yourhand.HandPoint += Card[i].Point;
+                    Console.WriteLine($"У вас на 1 руке { yourhand.HandPoint} очков");
+                    Console.WriteLine($"Ваша карта: { Card[i].Suit} { Card[i].Rank}");
+                    yourhand.HandPoint += Card[i].Point;
+                    Console.WriteLine($"У вас на 2 руке { yourhand.HandPoint} очков");
+                }
+                
+                    
+            }
+                
+
             for (int j = 0; j < 333; j++)
             {
                 Console.WriteLine("Вы хотите взять еще карту?(Y/N)");
